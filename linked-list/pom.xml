@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.algorithms-and-data-structures.linked-list</groupId>
+    <artifactId>linked-list</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Linked List</name>
+
+    <parent>
+        <groupId>com.algorithms-and-data-structures.main</groupId>
+        <artifactId>AlgorithmsAndDataStructures</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <outputDirectory>
+                        ${basedir}/..
+                    </outputDirectory>
+                    <archive>
+                        <manifest>
+                            <mainClass>
+                                com.structures.linked-list.App
+                            </mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
