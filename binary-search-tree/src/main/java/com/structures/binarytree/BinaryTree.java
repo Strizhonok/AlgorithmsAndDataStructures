@@ -43,11 +43,26 @@ public class BinaryTree {
 
     public boolean delete(int value) {
         if (root.value == value) {
-            clear(root);
-            root = null;
+            if (Objects.isNull(root.left) && Objects.isNull(root.right)) {
+                root = null;
+            } else if (Objects.isNull(root.left)) {
+                Node tmp = root.right;
+                root.right = null;
+                root = tmp;
+            } else if (Objects.isNull(root.right)) {
+                Node tmp = root.left;
+                root.left = null;
+                root = tmp;
+            } else {
+                Node left = root.left;
+                Node right = root.right;
+                root.left = null;
+                root.right = null;
+                root = right;
+                add(root, left);
+            }
             return true;
         }
-
         return delete(null, root, value);
     }
 
@@ -90,7 +105,11 @@ public class BinaryTree {
         }
     }
 
-    public void clear(Node node) {
+    public void clear() {
+        clear(root);
+    }
+
+    private void clear(Node node) {
         if (Objects.nonNull(node.left)) {
             clear(node.left);
             node.left = null;
