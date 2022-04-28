@@ -30,6 +30,8 @@ public class App {
         tree.add(155);
 
         tree.print();
+        tree.reverseTree();
+        tree.print();
     }
 
 }

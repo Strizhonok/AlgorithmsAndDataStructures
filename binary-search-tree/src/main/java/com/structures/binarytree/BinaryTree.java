@@ -199,6 +199,27 @@ public class BinaryTree {
         }
     }
 
+    public void reverseTree() {
+        reverseTree(root);
+    }
+
+    private void reverseTree(Node node) {
+        if (Objects.isNull(node)) {
+            return;
+        }
+
+        if (Objects.nonNull(node.left)) {
+            reverseTree(node.left);
+        }
+        if (Objects.nonNull(node.right)) {
+            reverseTree(node.right);
+        }
+
+        Node tmpLeftNode = node.left;
+        node.left = node.right;
+        node.right = tmpLeftNode;
+    }
+
     class Node {
 
         int value;

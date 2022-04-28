@@ -287,4 +287,30 @@ class BinaryTreeTest {
             .containsExactlyElementsOf(expectedList);
     }
 
+    @Test
+    void givenTree_whenReverseTree_thenSuccess() {
+        //Given
+        BinaryTree testTree = new BinaryTree(100);
+        testTree.add(56);
+        testTree.add(120);
+        testTree.add(50);
+        testTree.add(80);
+        testTree.add(25);
+        testTree.add(111);
+        testTree.add(145);
+
+        //When
+        testTree.reverseTree();
+
+        //Then
+        final List<Integer> resultList = new ArrayList<>();
+        testTree.breadthFirstTraversal(resultList);
+
+        final List<Integer> expectedList = List.of(100, 120, 56, 145, 111, 80, 50, 25);
+
+        assertThat(resultList)
+            .isNotNull()
+            .containsExactlyElementsOf(expectedList);
+    }
+
 }
