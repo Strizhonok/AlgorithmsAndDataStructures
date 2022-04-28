@@ -41,6 +41,26 @@ public class NAryTree {
         return null;
     }
 
+    public boolean delete(Node parentNode, int deletedValue) {
+        if (Objects.isNull(parentNode)) {
+            return false;
+        }
+
+        final Node deletedNode = parentNode.children.stream()
+            .filter(node -> node.value == deletedValue)
+            .findFirst()
+            .orElse(null);
+        if (deletedNode == null) {
+            return false;
+        }
+
+        parentNode.children.remove(deletedNode);
+        parentNode.children.addAll(deletedNode.children);
+        deletedNode.children = null;
+
+        return true;
+    }
+
     public Node getRoot() {
         return root;
     }
